@@ -4,13 +4,11 @@ from typing import List
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         index = 0
-
-        remember_set = set()
+        checker = {}
         for i in range(len(nums)):
-            if nums[i] not in remember_set:
+            if checker.get(nums[i], 0) < 2:
                 nums[index] = nums[i]
-                remember_set.add(nums[i])
+                checker[nums[i]] = checker.get(nums[i], 0) + 1
                 index += 1
 
         return index
-        
