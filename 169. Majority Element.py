@@ -2,13 +2,17 @@ from typing import List
 
 
 class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        index = 0
-        checker = {}
-        for i in range(len(nums)):
-            if checker.get(nums[i], 0) < 2:
-                nums[index] = nums[i]
-                checker[nums[i]] = checker.get(nums[i], 0) + 1
-                index += 1
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        result, major = 0, 0
 
-        return index
+        for num in nums:
+            if major == 0:
+                result = num
+
+            if result == num:
+                major += 1
+            else:
+                major -= 1
+
+        return result
