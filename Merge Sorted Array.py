@@ -21,3 +21,4 @@ class Solution:
             nums1[k] = nums2[j]
             k -= 1
             j -= 1
+
